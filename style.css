@@ -2,6 +2,9 @@ head, main, footer {
     min-width: 855px;
 }
 
+p {
+    display: inline;
+}
 main {
     background: white;
 }
