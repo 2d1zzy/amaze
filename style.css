@@ -14,6 +14,10 @@ head, main, footer {
     min-width: 855p;
 }
 
+.right-image {
+    float: right;
+}
+
 head {
     background: white;
 }
