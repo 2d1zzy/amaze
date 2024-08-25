@@ -11,10 +11,33 @@ footer {
 }
 
 head, main, footer {
-    min-width: 855px;
+    min-width: 855p;
 }
 
 head {
     background: white;
 }
 
+header .container, main .container, footer .container {
+    max-width: 855px;
+    margin: auto;
+}
+
+header {
+    background: white;
+    overflow: auto;
+}
+
+header h1 {
+    float: left;
+    width: 570px;
+}
+
+header nav {
+    float: right;
+    width: 285px;
+}
+
+header h5 {
+    float: right;
+}
