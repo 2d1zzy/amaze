@@ -49,3 +49,17 @@ header nav {
 header h5 {
     float: right;
 }
+
+.tabs a span.active {
+    background: #eee;
+}
+
+.tabs a span {
+    display: inline-block;
+    border-radius: 5px 5px 0 0;
+    width: 100px;
+    text-align: center;
+    background: #ddd;
+    padding: 5px;
+}
+
