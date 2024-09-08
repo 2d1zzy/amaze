@@ -1,33 +1,16 @@
-var main = function () {
+const main = function () {
     "use strict";
 
-    var makeTabActive = function (tabNumber) {
-        // construct the selector from the tabNumber
-        var tabSelector = ".tabs a:nth-child(" + tabNumber + ") span";
-            $(".tabs span").removeClass("active");
-            $(tabSelector).addClass("active");
+    const tabs = $(".tabs span");
+
+    tabs.toArray().forEach(function (element) {
+        // create a click handler for this element
+        $(element).on("click", function () { 
+            tabs.removeClass("active"); // use the cached variable
             $("main .content").empty();
-        };
-
-//Continue with Refactoring the code, by using a loop
-
-        $(".tabs a:nth-child(1)").on("click", function () {
-            makeTabActive(1);
             return false;
         });
-        
-        $(".tabs a:nth-child(2)").on("click", function () {
-            makeTabActive(2);
-            return false;
-        });
-
-        $(".tabs a:nth-child(3)").on("click", function () {
-            makeTabActive(3);
-            return false;
-        });
-    };
-
-    console.log("hello world!");
+    });
 };
 
 $(document).ready(main);
