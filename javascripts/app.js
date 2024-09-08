@@ -63,6 +63,7 @@ function main() {
         });
     });
 
+    $(".tab a:first-child span").trigger("click");
 }
 
 
