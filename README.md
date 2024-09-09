@@ -27,3 +27,7 @@ Hope so. Should be fun building it out piece by piece.
 ### Chapter 3 
 This chapter has been an introduction to CSS. The majority was easy to follow along to.
 The end of the chapter culminating in styling the "Amazeriffic" Web Application.
+
+
+### Chapter 4
+Here I added JavaScript and jquery, added functionality. I also used modern syntax such as `const` and `let`, with the help of Chatgpt.
