@@ -1,4 +1,4 @@
-function main() {
+var main = function (toDoOBjects) {
     "use strict";
 
     const tabs = $(".tabs a span");
@@ -67,5 +67,9 @@ function main() {
 }
 
 
-
-$(document).ready(main); 
+    
+$(document).ready(function() {
+    $.getJSON("to-dos.json", function (toDoObjects) {
+        main(toDoObjects);
+    });
+}); 
