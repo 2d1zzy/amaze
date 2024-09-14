@@ -6,9 +6,9 @@ function main() {
     const toDos = [
         "Get Groceries",
         "Make up some new ToDos",
-        "Coding is awesome",
+        "Prep for Mondays's class",
         "Take Gracie to the park",
-        "Coding is your future",
+        "Finish writing this book",
     ];
 
     tabs.toArray().forEach(function (element) {
