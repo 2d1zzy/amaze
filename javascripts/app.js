@@ -1,9 +1,9 @@
-var main = function (toDoOBjects) {
+var main = function (toDoObjects) {
     "use strict";
 
-    const tabs = $(".tabs a span");
+    var tabs = $(".tabs a span");
 
-    const toDos = [
+    var toDos = [
         "Get Groceries",
         "Make up some new ToDos",
         "Prep for Mondays's class",
@@ -17,8 +17,8 @@ var main = function (toDoOBjects) {
             // since we're using the jquery version of element,
             // we'll go ahead and create a temporary variable
             // so we don't need to keep recreating it
-            const $element = $(element);
-            let $content; // Declare $content variable to hold content for the tabs
+            var $element = $(element);
+            var $content; // Declare $content variable to hold content for the tabs
            
            // Remove the 'active' class from all tabs and add it to the clicked one
             tabs.removeClass("active");
@@ -35,7 +35,7 @@ var main = function (toDoOBjects) {
                 $content = $("<ul>");
 
                 // loop backward through the toDos array
-                for (let i = toDos.length -1; i >= 0; i--){
+                for (var i = toDos.length -1; i >= 0; i--){
                     $content.append($("<li>").text(toDos[i]));
                 }
 
@@ -45,7 +45,7 @@ var main = function (toDoOBjects) {
             } else if ($element.parent().is(":nth-child(2)")) {
                 console.log("SECOND TAB CLICKED!");
 
-                // Create aa ul element for the second tab
+                // Create a ul element for the second tab
                 $content = $("<ul>");
 
                 // Loop through the toDos to the main content area
@@ -66,10 +66,9 @@ var main = function (toDoOBjects) {
     $(".tab a:first-child span").trigger("click");
 }
 
-
     
 $(document).ready(function() {
     $.getJSON("to-dos.json", function (toDoObjects) {
         main(toDoObjects);
     });
-}); 
+});
