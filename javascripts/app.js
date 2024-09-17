@@ -3,27 +3,21 @@ var main = function (toDoObjects) {
 
     var tabs = $(".tabs a span");
 
-    var toDos = [
-        "Get Groceries",
-        "Make up some new ToDos",
-        "Prep for Mondays's class",
-        "Take Gracie to the park",
-        "Finish writing this book",
-    ];
+    // Extract descriptions from toDoObjects to populate initial toDos array
+    var toDos = toDoObjects.map(function (toDo) {
+        return toDo.description;
+    });
 
     tabs.toArray().forEach(function (element) {
         // create a click handler for this element
         $(element).on("click", function () {
-            // since we're using the jquery version of element,
-            // we'll go ahead and create a temporary variable
-            // so we don't need to keep recreating it
             var $element = $(element);
-            var $content; // Declare $content variable to hold content for the tabs
-           
-           // Remove the 'active' class from all tabs and add it to the clicked one
+            var $content;
+
+            // Remove the 'active' class from all tabs and add it to the clicked one
             tabs.removeClass("active");
             $element.addClass("active");
-            
+
             // Empty the content area
             $("main .content").empty();
 
@@ -35,7 +29,7 @@ var main = function (toDoObjects) {
                 $content = $("<ul>");
 
                 // loop backward through the toDos array
-                for (var i = toDos.length -1; i >= 0; i--){
+                for (var i = toDos.length - 1; i >= 0; i--) {
                     $content.append($("<li>").text(toDos[i]));
                 }
 
@@ -45,7 +39,7 @@ var main = function (toDoObjects) {
             } else if ($element.parent().is(":nth-child(2)")) {
                 console.log("SECOND TAB CLICKED!");
 
-                // Create a ul element for the second tab
+                // Create a ul element for the second tab (oldest to-do first)
                 $content = $("<ul>");
 
                 // Loop through the toDos to the main content area
@@ -57,17 +51,59 @@ var main = function (toDoObjects) {
 
             } else if ($element.parent().is(":nth-child(3)")) {
                 console.log("THIRD TAB CLICKED!");
+
+                // Logic for the Tags tab
+                var tags = [];
+
+                // Loop through the toDoObjects to get the tags
+                toDoObjects.forEach(function (toDo) {
+                    toDo.tags.forEach(function (tag) {
+                        if (tags.indexOf(tag) === -1) {
+                            tags.push(tag); // Push only unique tags
+                        }
+                    });
+                });
+
+                // Create a div for the tags
+                $content = $("<div>");
+                tags.forEach(function (tag) {
+                    var $tag = $("<p>").text(tag);
+                    $content.append($tag);
+                });
+
+                $("main .content").append($content);
+
+            } else if ($element.parent().is(":nth-child(4)")) {
+                console.log("ADD TAB CLICKED!");
+
+                // Create input and button elements for adding a new to-do
+                var $input = $("<input>");
+                var $button = $("<button>").text("+");
+
+                // Add click event to the button
+                $button.on("click", function () {
+                    var newToDo = $input.val();
+                    if (newToDo) {
+                        toDos.push(newToDo);
+                        // Add the new To-Do object
+                        toDoObjects.push({ description: newToDo, tags: [] });
+                    }
+                    $input.val(""); // Clear the input
+                });
+
+                $content = $("<div>").append($input).append($button);
+                $("main .content").append($content);
             }
 
-            return false;
+            return false; // Prevent default anchor behavior
         });
     });
 
-    $(".tab a:first-child span").trigger("click");
-}
+    // Trigger click on the first tab on page load
+    $(".tabs a:first-child span").trigger("click");
+};
 
-    
-$(document).ready(function() {
+$(document).ready(function () {
     $.getJSON("to-dos.json", function (toDoObjects) {
         main(toDoObjects);
     });
