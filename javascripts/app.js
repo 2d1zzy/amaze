@@ -67,7 +67,7 @@ var main = function (toDoObjects) {
                 // Create a div for the tags
                 $content = $("<div>");
                 tags.forEach(function (tag) {
-                    var $tag = $("<p>").text(tag);
+                    var $tag = $("<span>").text(tag + " "); // ADD a space for each tag
                     $content.append($tag);
                 });
 
