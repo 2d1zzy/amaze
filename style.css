@@ -1,68 +1,80 @@
-head, main, footer {
-    min-width: 855px;
+head,
+main,
+footer {
+  min-width: 855px;
+}
+
+h1 {
+  font-style: italic;
+  font-size: xx-large;
+  color: rgb(181, 4, 4);
 }
 
 p {
-    display: inline;
+  display: inline;
 }
 main {
-    background: white;
+  background: white;
 }
 
 footer {
-    background-color: yellow;
-    clear: both;
+  background-color: yellow;
+  clear: both;
 }
 
-head, main, footer {
-    min-width: 855p;
+head,
+main,
+footer {
+  min-width: 855p;
 }
 
 .right-image {
-    float: right;
+  float: right;
 }
 
 head {
-    background: white;
+  background: white;
 }
 
-header .container, main .container, footer .container {
-    max-width: 855px;
-    margin: auto;
+header .container,
+main .container,
+footer .container {
+  max-width: 855px;
+  margin: auto;
 }
 
 header {
-    background: white;
-    overflow: auto;
+  background: white;
+  overflow: auto;
 }
 
 header h1 {
-    float: left;
-    width: 570px;
+  float: left;
+  width: 570px;
 }
 
 header nav {
-    float: right;
-    width: 285px;
+  float: right;
+  width: 285px;
 }
 
 header h5 {
-    float: right;
+  float: right;
 }
 
 .tabs a span.active {
-    background: #aaa;
+  background: #aaa;
 }
 
 .tabs a span {
-    display: inline-block;
-    border-radius: 5px 5px 0 0;
-    width: 100px;
-    text-align: center;
-    background: #ddd;
-    padding: 5px;
+  display: inline-block;
+  border-radius: 5px 5px 0 0;
+  width: 100px;
+  text-align: center;
+  background: #ddd;
+  padding: 5px;
 }
 
 main .content span {
-    margin-right: 10px;
+  margin-right: 10px;
 }
